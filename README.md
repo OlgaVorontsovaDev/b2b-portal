@@ -1,32 +1,52 @@
-# React + TypeScript + Vite
+# B2B Portal (Pet Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Личный кабинет для B2B-сервиса по выкупу товаров.
+Проект разработан с использованием методологии **Spec-Driven Development (SDD)** и инструмента **OpenSpec**.
 
-Currently, two official plugins are available:
+## 🚀 Текущий функционал
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **История заказов**: Просмотр списка заказов с пагинацией (по 10 элементов).
+- **Фильтрация**: Фильтр по статусу заказа (новый, в обработке, отправлен, доставлен, отменен).
+- **Состояния UI**: Обработка состояний загрузки, ошибок (с возможностью повтора) и пустого результата.
+- **Мок-API**: Слой данных имитирует будущий серверный контракт с задержкой сети и поддержкой отмены запросов (`AbortController`).
 
-## React Compiler
+## 🛠 Стек технологий
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19, TypeScript
+- **Сборка**: Vite
+- **Линтинг**: Oxlint
+- **Методология**: Spec-Driven Development (OpenSpec)
 
-## Expanding the Oxlint configuration
+## 📂 Структура проекта и SDD
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Проект использует подход, при котором спецификации являются основным источником истины. Вся документация хранится в папке `openspec/`:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+- `openspec/specs/` — утвержденные спецификации (например, `order-history/spec.md`).
+- `openspec/changes/` — активные изменения (в данный момент пусто).
+- `openspec/changes/archive/` — архив завершенных изменений с историей задач и решений.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 💻 Запуск проекта
+
+1.  Клонируйте репозиторий:
+
+    ```bash
+    git clone https://github.com/OlgaVorontsovaDev/b2b-portal.git
+    cd b2b-portal
+
+    ```
+
+2.  Установите зависимости:
+
+    ```bash
+    npm install
+
+    ```
+
+3.  Запустите сервер разработки:
+
+    ```bash
+    npm run dev
+
+    ```
+
+4.  Откройте http://localhost:5173/ в браузере.
